@@ -46,6 +46,12 @@ func Run(client *cmd.Client, args ...string) {
 			Action: client.RunNode,
 		},
 		{
+			Name:    "account",
+			Aliases: []string{"a"},
+			Usage:   "Display the ETH & LINK balances and addresses",
+			Action:  client.DisplayAccountInfo,
+		},
+		{
 			Name:    "jobspecs",
 			Aliases: []string{"jobs", "j", "specs"},
 			Usage:   "Get all jobs",

@@ -69,6 +69,10 @@ func logNodeBalance(store *strpkg.Store) {
 	logger.Infow(balance)
 }
 
+func (cli *Client) DisplayAccountInfo(c *clipkg.Context) error {
+	return nil
+}
+
 // ShowJobSpec returns the status of the given JobID.
 func (cli *Client) ShowJobSpec(c *clipkg.Context) error {
 	cfg := cli.Config
