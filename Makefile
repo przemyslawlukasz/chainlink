@@ -7,7 +7,7 @@ LDFLAGS=-ldflags "-X github.com/smartcontractkit/chainlink/store.Sha=`git rev-pa
 dep:
 	@dep ensure
 
-build: dep
+build: dep ./adapters/http/target/release/libhttp.dylib
 	@go build $(LDFLAGS) -o chainlink
 
 install: dep
@@ -18,3 +18,6 @@ docker:
 
 dockerpush:
 	@docker push $(REPO)
+
+./adapters/http/target/release/libhttp.dylib: adapters/http/Cargo.toml adapters/http/src/*
+	cargo build --release --manifest-path $<
